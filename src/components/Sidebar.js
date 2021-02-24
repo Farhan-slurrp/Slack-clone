@@ -14,26 +14,45 @@ const Sidebar = ({ dark }) => {
       <WorkspaceContainer
         style={
           dark
-            ? { borderBottom: "1px solid #fff" }
+            ? { borderBottom: "1px solid #333" }
             : { borderBottom: "1px solid #532753" }
         }
       >
         <Name>CleverProgrammer</Name>
-        <NewMessage>
+        <NewMessage
+          style={
+            dark
+              ? { color: "#333", fill: "333" }
+              : { color: "#3f0e40", fill: "#3f0e40" }
+          }
+        >
           <AddCircleOulineItem />
         </NewMessage>
       </WorkspaceContainer>
       <MainChannels>
         {sidebarItems.map((item, index) => {
           return (
-            <MainChannelItem key={index}>
+            <MainChannelItem
+              key={index}
+              style={
+                dark
+                  ? { color: "rgba(255, 255, 255, 0.7)" }
+                  : { color: "rgb(188, 171, 188)" }
+              }
+            >
               {item.icon}
               {item.text}
             </MainChannelItem>
           );
         })}
       </MainChannels>
-      <ChannelsContainer>
+      <ChannelsContainer
+        style={
+          dark
+            ? { color: "rgba(255, 255, 255, 0.7)" }
+            : { color: "rgb(188, 171, 188)" }
+        }
+      >
         <NewChannelContainer>
           <div>Channels</div>
           <AddIcon />
@@ -67,8 +86,6 @@ const NewMessage = styled.div`
   width: 36px;
   height: 36px;
   background: white;
-  color: #3f0e40;
-  fill: #3f0e40;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,7 +99,6 @@ const MainChannels = styled.div`
 `;
 
 const MainChannelItem = styled.div`
-  color: rgb(188, 171, 188);
   display: grid;
   grid-template-columns: 15% auto;
   height: 28px;

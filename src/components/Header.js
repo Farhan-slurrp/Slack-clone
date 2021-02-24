@@ -23,7 +23,7 @@ const Header = ({ dark, toggleDark }) => {
           <Search
             style={
               dark
-                ? { boxShadow: "inset 0 0 0 1px rgb(255 255 255 )" }
+                ? { boxShadow: "inset 0 0 0 1px rgb(100 100 100 )" }
                 : { boxShadow: "inset 0 0 0 1px rgb(104 74 104)" }
             }
           >
