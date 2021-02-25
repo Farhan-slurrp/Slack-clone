@@ -1,11 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import AddCircleOulineItem from "@material-ui/icons/AddCircleOutline";
 import AddIcon from "@material-ui/icons/Add";
 import { sidebarItems, Channels } from "../data/sidebarData";
+import db from "../firebase";
 
-const Sidebar = ({ dark }) => {
-  const darkTheme = dark;
+const Sidebar = ({ dark, rooms }) => {
+  const addChannel = () => {
+    const prompName = prompt("Enter channel name: ");
+    if (prompName) {
+      db.collection("rooms").add({
+        name: prompName,
+      });
+    }
+  };
 
   return (
     <Container
@@ -55,11 +63,11 @@ const Sidebar = ({ dark }) => {
       >
         <NewChannelContainer>
           <div>Channels</div>
-          <AddIcon />
+          <AddIcon onClick={addChannel} style={{ cursor: "pointer" }} />
         </NewChannelContainer>
         <ChannelList>
-          {Channels.map((channel, index) => {
-            return <Channel key={index}>{channel.name}</Channel>;
+          {rooms.map((channel) => {
+            return <Channel key={channel.id}># {channel.name}</Channel>;
           })}
         </ChannelList>
       </ChannelsContainer>
@@ -129,6 +137,6 @@ const Channel = styled.div`
   margin: 0 0 0 19px;
   cursor: pointer;
   :hover {
-    background: #350d36;
+    background: rgb(255 255 255 / 10%);
   }
 `;

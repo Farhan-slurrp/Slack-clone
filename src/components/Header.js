@@ -10,14 +10,14 @@ const Header = ({ dark, toggleDark }) => {
     <Container
       style={dark ? { background: "#12171d" } : { background: "#3f0e40" }}
     >
+      <Button onClick={toggleDark}>
+        {dark ? (
+          <ToggleOnIcon style={{ width: "100%", height: "100%" }} />
+        ) : (
+          <ToggleOffIcon style={{ width: "100%", height: "100%" }} />
+        )}
+      </Button>
       <Main>
-        <Button onClick={toggleDark}>
-          {dark ? (
-            <ToggleOnIcon style={{ width: "100%", height: "100%" }} />
-          ) : (
-            <ToggleOffIcon style={{ width: "100%", height: "100%" }} />
-          )}
-        </Button>
         <AccessTimeIcon />
         <SearchContainer>
           <Search
@@ -65,7 +65,7 @@ const Button = styled.div`
   align-items: center;
   width: 2em;
   position: absolute;
-  left: 1em;
+  left: 1.3em;
   cursor: pointer;
 `;
 
